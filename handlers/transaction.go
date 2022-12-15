@@ -162,9 +162,9 @@ func (h *handlerTransaction) Notification(w http.ResponseWriter, r *http.Request
 	} else if transactionStatus == "settlement" {
 		h.TransactionRepository.UpdatePayment("success", transaction.ID)
 	} else if transactionStatus == "deny" {
-		h.TransactionRepository.UpdatePayment("Cancel", transaction.ID)
+		h.TransactionRepository.UpdatePayment("cancel", transaction.ID)
 	} else if transactionStatus == "cancel" || transactionStatus == "expire" {
-		h.TransactionRepository.UpdatePayment("Cancel", transaction.ID)
+		h.TransactionRepository.UpdatePayment("cancel", transaction.ID)
 	} else if transactionStatus == "pending" {
 		h.TransactionRepository.UpdatePayment("pending", transaction.ID)
 	}
